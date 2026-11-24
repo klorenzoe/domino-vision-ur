@@ -3,7 +3,30 @@
 Detección de ArUco, homografía imagen->mesa y transformación mesa->robot,
 recalculadas en cada captura (calibración automática).
 """
+
+import cv2
 import numpy as np
+
+from src import config
+
+_detector = cv2.aruco.ArucoDetector(
+    cv2.aruco.getPredefinedDictionary(getattr(cv2.aruco, config.ARUCO_DICT))
+)
+
+
+def detect_markers(frame: np.ndarray) -> dict[int, np.ndarray]:
+    """Devuelve {id: centro (x, y) en px} de los ArUco de config.ARUCO_TABLE_MM."""
+
+    corners, ids, _ = _detector.detectMarkers(frame)
+
+    if ids is None:
+        return {}
+
+    return {
+        int(i): c.reshape(4, 2).mean(axis=0)
+        for i, c in zip(ids.flatten(), corners)
+        if int(i) in config.ARUCO_TABLE_MM
+    }
 
 
 def rectify(frame: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
