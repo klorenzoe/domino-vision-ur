@@ -49,13 +49,23 @@ def compute_homography(frame: np.ndarray) -> np.ndarray:
 
 
 def rectify(frame: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """Devuelve (imagen rectificada cenital, homografía H). Falla si hay < 4 ArUco."""
-    raise NotImplementedError
+    """Devuelve (imagen cenital de la mesa, H). En la imagen: 1 mm = WARP_PX_PER_MM px."""
+    H = compute_homography(frame)
+    k = config.WARP_PX_PER_MM
+    w, h = config.TABLE_SIZE_MM
+    warped = cv2.warpPerspective(frame, np.diag([k, k, 1.0]) @ H, (round(w * k), round(h * k)))
+    return warped, H
 
 
 def px_to_table_mm(pt_px: tuple[float, float], H: np.ndarray) -> tuple[float, float]:
     """Pixel de la imagen original -> mm en el plano de la mesa."""
-    raise NotImplementedError
+    x, y = cv2.perspectiveTransform(np.float64([[pt_px]]), H)[0, 0]
+    return float(x), float(y)
+
+
+def table_mm_to_px(pt_mm: tuple[float, float], H: np.ndarray) -> tuple[float, float]:
+    """mm de la mesa -> pixel de la imagen original."""
+    return px_to_table_mm(pt_mm, np.linalg.inv(H))
 
 
 def table_to_robot(pt_mm: tuple[float, float]) -> tuple[float, float, float]:
