@@ -29,8 +29,27 @@ def detect_markers(frame: np.ndarray) -> dict[int, np.ndarray]:
     }
 
 
+class CalibrationError(Exception):
+    """Faltan ArUco para calibrar."""
+
+
+def compute_homography(frame: np.ndarray) -> np.ndarray:
+    """H (3x3): px de la imagen original -> mm de la mesa, con los 4 centros de los ArUco."""
+
+    markers = detect_markers(frame)
+
+    if len(markers) < config.MIN_ARUCO_VISIBLE:
+        raise CalibrationError(f"Fewer than {config.MIN_ARUCO_VISIBLE} ArUco markers visible")
+
+    ids = sorted(markers)
+    src = np.float32([markers[i] for i in ids])
+    dst = np.float32([config.ARUCO_TABLE_MM[i] for i in ids])
+
+    return cv2.getPerspectiveTransform(src, dst)
+
+
 def rectify(frame: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """Devuelve (imagen rectificada cenital, homografía H). Falla si hay < 3 ArUco."""
+    """Devuelve (imagen rectificada cenital, homografía H). Falla si hay < 4 ArUco."""
     raise NotImplementedError
 
 
