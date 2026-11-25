@@ -2,10 +2,12 @@
 
 Uso: python -m scripts.inspect_aruco data/escena_ejemplo.png
 """
+
 import sys
 from pathlib import Path
 
 import cv2
+import numpy as np
 
 from src import config
 
@@ -20,7 +22,11 @@ if ids is None:
 
 for marker_id, c in sorted(zip(ids.flatten(), corners), key=lambda t: t[0]):
     cx, cy = c[0].mean(axis=0)
-    print(f"id {marker_id}: centro_px=({cx:.1f}, {cy:.1f})")
+    side_px = np.linalg.norm(np.roll(c[0], 1, axis=0) - c[0], axis=1).mean()
+    print(
+        f"id {marker_id}: centro_px=({cx:.1f}, {cy:.1f}) lado_px={side_px:.0f} "
+        f"px_por_mm={side_px / config.ARUCO_SIZE_MM:.2f}"
+    )
 
 cv2.aruco.drawDetectedMarkers(img, corners, ids)
 

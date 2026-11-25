@@ -1,16 +1,27 @@
 """Constantes del proyecto (completar con mediciones reales, PLAN.md §12).
 
 Marcos: imagen (px) · mesa (mm, origen arriba-izq, x der, y abajo; arriba = robot) · robot (mm, base UR).
+
+### TODO (laboratorio):
+- Pegar los ArUco a ras de cada esquina en el orden de la hoja (0 arriba-izq, 1 arriba-der,
+  2 abajo-izq, 3 abajo-der). Verificar con scripts/inspect_aruco.py.
+- Medir con cinta TABLE_SIZE_MM y verificar ARUCO_TABLE_MM con regla.
+- ARUCO_ROBOT_MM: freedrive a los ArUco 0, 1 y 2 (el 3 queda fuera de alcance), con el TCP
+  en la punta de los dedos; el pendant da x, y con signo invertido respecto a ROS.
+- TILE_Z_MM = z de los ArUco + grosor de la ficha / 2.
+- Comprobar el alcance del robot en GAME_ZONE_MM y POOL_ZONE_MM; recortarlas si no llega.
+- Revisar WARP_PX_PER_MM: lado en px de los ArUco del fondo / ARUCO_SIZE_MM.
 """
 
 ARUCO_DICT = "DICT_4X4_50"
 ARUCO_SIZE_MM = 80.0  # no se usa para H
+
 # id -> centro en mesa: marcador con su borde a ras de cada esquina (centro a 40 mm de los bordes).
 ARUCO_TABLE_MM: dict[int, tuple[float, float]] = {
-    0: (600.0, 460.0),
-    1: (40.0, 460.0),
-    2: (600.0, 40.0),
-    3: (40.0, 40.0),
+    0: (40, 40),
+    1: (600, 40),
+    2: (40, 460),
+    3: (600, 460),
 }
 
 
