@@ -3,3 +3,4 @@ numpy
 scipy
 scikit-image
 matplotlib
+cv2-enumerate-cameras

@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#475569" stroke-width="2"/>
+    </pattern>
+    <clipPath id="tableClip"><rect x="90" y="210" width="420" height="360" rx="10"/></clipPath>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+
+  <!-- Título -->
+  <text x="40" y="54" font-size="26" font-weight="700" fill="#0f172a">Cómo ve la mesa el sistema</text>
+  <text x="40" y="82" font-size="15" fill="#64748b">De la foto de la cámara a una posición que el robot puede alcanzar</text>
+
+  <!-- ===================== Panel izquierdo: mesa ===================== -->
+  <rect x="30" y="110" width="540" height="660" rx="18" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <text x="60" y="148" font-size="13" font-weight="700" fill="#64748b" letter-spacing="1.5">MESA VISTA DESDE ARRIBA</text>
+
+  <!-- Robot -->
+  <circle cx="170" cy="186" r="24" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <circle cx="170" cy="186" r="8" fill="#7c3aed"/>
+  <text x="206" y="182" font-size="14" font-weight="600" fill="#5b21b6">Robot UR3e</text>
+  <text x="206" y="199" font-size="12" fill="#7c3aed">base fuera de la mesa</text>
+
+  <!-- Mesa -->
+  <rect x="90" y="210" width="420" height="360" rx="10" fill="#1e293b"/>
+
+  <!-- Zona que el robot no alcanza -->
+  <g clip-path="url(#tableClip)">
+    <path d="M90 210 H510 V570 H90 Z M 170 186 m -365 0 a 365 365 0 1 0 730 0 a 365 365 0 1 0 -730 0 Z" fill="url(#hatch)" fill-rule="evenodd" opacity="0.55"/>
+    <circle cx="170" cy="186" r="365" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="7 6"/>
+  </g>
+  <text x="452" y="556" font-size="11" fill="#cbd5e1" text-anchor="end">el robot no llega</text>
+
+  <!-- Pool -->
+  <rect x="190" y="232" width="230" height="92" rx="8" fill="#fb923c" fill-opacity="0.18" stroke="#fb923c" stroke-width="2"/>
+  <text x="200" y="250" font-size="12" font-weight="700" fill="#fdba74">POOL</text>
+  <g fill="#f8fafc">
+    <rect x="262" y="246" width="13" height="26" rx="2"/>
+    <rect x="290" y="246" width="13" height="26" rx="2"/>
+    <rect x="318" y="246" width="13" height="26" rx="2"/>
+    <rect x="346" y="246" width="13" height="26" rx="2"/>
+    <rect x="276" y="284" width="13" height="26" rx="2"/>
+    <rect x="304" y="284" width="13" height="26" rx="2"/>
+    <rect x="332" y="284" width="13" height="26" rx="2"/>
+  </g>
+
+  <!-- Juego -->
+  <rect x="104" y="350" width="356" height="74" rx="8" fill="#22c55e" fill-opacity="0.16" stroke="#22c55e" stroke-width="2"/>
+  <text x="114" y="368" font-size="12" font-weight="700" fill="#86efac">JUEGO</text>
+  <g fill="#f8fafc">
+    <rect x="176" y="380" width="27" height="13" rx="2"/>
+    <rect x="205" y="380" width="27" height="13" rx="2"/>
+    <rect x="234" y="380" width="27" height="13" rx="2"/>
+    <rect x="263" y="380" width="27" height="13" rx="2"/>
+  </g>
+  <text x="300" y="392" font-size="11" fill="#86efac">cadena →</text>
+
+  <!-- ArUco -->
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <g>
+      <rect x="100" y="222" width="34" height="34" rx="3" fill="#ffffff"/>
+      <rect x="106" y="228" width="22" height="22" fill="#0f172a"/>
+      <text x="117" y="244" fill="#ffffff">0</text>
+    </g>
+    <g>
+      <rect x="466" y="222" width="34" height="34" rx="3" fill="#ffffff"/>
+      <rect x="472" y="228" width="22" height="22" fill="#0f172a"/>
+      <text x="483" y="244" fill="#ffffff">1</text>
+    </g>
+    <g>
+      <rect x="110" y="526" width="34" height="34" rx="3" fill="#ffffff"/>
+      <rect x="116" y="532" width="22" height="22" fill="#0f172a"/>
+      <text x="127" y="548" fill="#ffffff">2</text>
+    </g>
+    <g opacity="0.5">
+      <rect x="466" y="526" width="34" height="34" rx="3" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="483" y="548" fill="#94a3b8">3</text>
+    </g>
+  </g>
+
+  <!-- Cámara y su vista -->
+  <g stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.8">
+    <line x1="300" y1="664" x2="90" y2="570"/>
+    <line x1="300" y1="664" x2="510" y2="570"/>
+  </g>
+  <rect x="276" y="652" width="48" height="30" rx="7" fill="#0ea5e9"/>
+  <circle cx="300" cy="667" r="9" fill="#e0f2fe"/>
+  <circle cx="300" cy="667" r="4" fill="#0369a1"/>
+  <text x="300" y="706" font-size="14" font-weight="600" fill="#0369a1" text-anchor="middle">Cámara ELP</text>
+  <text x="300" y="723" font-size="12" fill="#0284c7" text-anchor="middle">fija, mirando en diagonal</text>
+
+  <!-- Leyenda -->
+  <g font-size="12" fill="#475569">
+    <rect x="60" y="742" width="14" height="14" rx="3" fill="#0f172a"/>
+    <text x="80" y="753">ArUco usado</text>
+    <rect x="170" y="742" width="14" height="14" rx="3" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3 2"/>
+    <text x="190" y="753">ArUco 3: no se usa</text>
+    <rect x="320" y="742" width="14" height="14" rx="3" fill="url(#hatch)" stroke="#94a3b8"/>
+    <text x="340" y="753">fuera de alcance</text>
+  </g>
+
+  <!-- ===================== Panel derecho: flujo ===================== -->
+  <text x="620" y="148" font-size="13" font-weight="700" fill="#64748b" letter-spacing="1.5">QUÉ PASA CON CADA FOTO</text>
+
+  <!-- Flechas -->
+  <g stroke="#94a3b8" stroke-width="1.8" marker-end="url(#arrow)">
+    <line x1="880" y1="236" x2="880" y2="256"/>
+    <line x1="880" y1="336" x2="880" y2="356"/>
+    <line x1="880" y1="436" x2="880" y2="456"/>
+    <line x1="880" y1="536" x2="880" y2="556"/>
+    <line x1="880" y1="636" x2="880" y2="656"/>
+  </g>
+
+  <!-- 1 Foto -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="166" width="520" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+  <rect x="620" y="166" width="6" height="70" rx="3" fill="#0ea5e9"/>
+  <circle cx="660" cy="201" r="16" fill="#e0f2fe"/><text x="660" y="206" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">1</text>
+  <text x="690" y="196" font-size="16" font-weight="700" fill="#0f172a">Foto</text>
+  <text x="690" y="217" font-size="13" fill="#64748b">Exposición y ganancia fijas: todas las fotos salen igual</text>
+
+  <!-- 2 Lente -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="266" width="520" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+  <rect x="620" y="266" width="6" height="70" rx="3" fill="#2563eb"/>
+  <circle cx="660" cy="301" r="16" fill="#dbeafe"/><text x="660" y="306" font-size="14" font-weight="700" fill="#1d4ed8" text-anchor="middle">2</text>
+  <text x="690" y="296" font-size="16" font-weight="700" fill="#0f172a">Quitar el ojo de pez</text>
+  <text x="690" y="317" font-size="13" fill="#64748b">Las rectas vuelven a ser rectas</text>
+  <rect x="1046" y="284" width="78" height="24" rx="12" fill="#dbeafe"/>
+  <text x="1085" y="300" font-size="11" font-weight="700" fill="#1d4ed8" text-anchor="middle">TABLERO</text>
+
+  <!-- 3 ArUco -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="366" width="520" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+  <rect x="620" y="366" width="6" height="70" rx="3" fill="#0f172a"/>
+  <circle cx="660" cy="401" r="16" fill="#e2e8f0"/><text x="660" y="406" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle">3</text>
+  <text x="690" y="396" font-size="16" font-weight="700" fill="#0f172a">Ubicar la mesa</text>
+  <text x="690" y="417" font-size="13" fill="#64748b">Con 2 ArUco visibles ya sabe dónde está la cámara</text>
+  <rect x="1046" y="384" width="78" height="24" rx="12" fill="#e2e8f0"/>
+  <text x="1085" y="400" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">ARUCO</text>
+
+  <!-- 4 Vista cenital -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="466" width="520" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+  <rect x="620" y="466" width="6" height="70" rx="3" fill="#14b8a6"/>
+  <circle cx="660" cy="501" r="16" fill="#ccfbf1"/><text x="660" y="506" font-size="14" font-weight="700" fill="#0f766e" text-anchor="middle">4</text>
+  <text x="690" y="496" font-size="16" font-weight="700" fill="#0f172a">Vista desde arriba</text>
+  <text x="690" y="517" font-size="13" fill="#64748b">Cada ficha mide lo mismo en toda la mesa</text>
+  <rect x="1046" y="484" width="78" height="24" rx="12" fill="#ccfbf1"/>
+  <text x="1085" y="500" font-size="11" font-weight="700" fill="#0f766e" text-anchor="middle">RECTIFY</text>
+
+  <!-- 5 Zonas -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="566" width="520" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+  <rect x="620" y="566" width="6" height="70" rx="3" fill="#f97316"/>
+  <circle cx="660" cy="601" r="16" fill="#ffedd5"/><text x="660" y="606" font-size="14" font-weight="700" fill="#c2410c" text-anchor="middle">5</text>
+  <text x="690" y="596" font-size="16" font-weight="700" fill="#0f172a">Buscar fichas en juego y pool</text>
+  <text x="690" y="617" font-size="13" fill="#64748b">Lo hacen P2 (fichas) y P3 (puntos)</text>
+  <rect x="1046" y="584" width="78" height="24" rx="12" fill="#ffedd5"/>
+  <text x="1085" y="600" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">P2 · P3</text>
+
+  <!-- 6 Robot -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="666" width="520" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+  <rect x="620" y="666" width="6" height="70" rx="3" fill="#7c3aed"/>
+  <circle cx="660" cy="701" r="16" fill="#ede9fe"/><text x="660" y="706" font-size="14" font-weight="700" fill="#6d28d9" text-anchor="middle">6</text>
+  <text x="690" y="696" font-size="16" font-weight="700" fill="#0f172a">Pasar a coordenadas del robot</text>
+  <text x="690" y="717" font-size="13" fill="#64748b">ArUco medidos con el robot a mano (freedrive)</text>
+  <rect x="1046" y="684" width="78" height="24" rx="12" fill="#ede9fe"/>
+  <text x="1085" y="700" font-size="11" font-weight="700" fill="#6d28d9" text-anchor="middle">ROBOT</text>
+
+  <!-- Nota -->
+  <text x="620" y="766" font-size="12" fill="#94a3b8">Los pasos 2 y 6 se calibran una vez. Los pasos 3 a 5 se recalculan solos en cada foto.</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo0NmIyMTU5ZC1mNjM0LTRhMjgtYjA1My03ZjRhYjZlNWFlMzAAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaO7L+8ZR53ygqWbMBUWbLM4AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoxNDBlOGMwNC1iNWZjLTQ4NmQtYmQzMS1lODk4MTk0Yzk4Y2RscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoIJV7KdpQd3K5zdsl10zxXwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggza3EgwyaaaGs+gFVvWDMtZ4wDhIEJw1BgkVmK8eGOk2kZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaJMA4jNbOSQpAmRLnbR8WegAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIB8loSPz/pLPP2UT5EQ3LCcIWQDuNtduYzcW/0e//1TZZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GSoMZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjQ2YjIxNTlkLWY2MzQtNGEyOC1iMDUzLTdmNGFiNmU1YWUzMC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjQyYmRlZjk1LTI2MjItNGUwYS05ZGQ3LWY0ZWQ2MjRkZDEzN3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDNrcSDDJppoaz6AVW9YMy1njAOEgQnDUGCRWYrx4Y6TaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg+Wr9vfsRuo4bk861fK6WEXfRV7633sUEfkylFvkM9FKiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggXXKrAOrpy22X3nlUfCtPMcnrEOhXJU0Z5pylzG+THGB0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQJw58o22i5qYOua0X+fKOQ28BnvdmcdsSh+gBqCxzb5xVtGLwiIbvrCOnrOFF5Alwxb0qpU1E/oMdVO9ZTEPgeQ=</c2pa:manifest></metadata></svg>
